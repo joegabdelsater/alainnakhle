@@ -11,13 +11,22 @@ use App\Models\Social;
 
 class PagesController extends Controller
 {
-    
-    public function index() {
+
+    public function index()
+    {
         $about = About::first();
         $banner = Banner::first();
-        $projects = Project::all();
-        $categories = Category::all();
+        $small_text = explode(' ', $banner->small_text);
+        $socials = Social::all()->keyBy('platform')->toArray();
 
-        return view('index', compact('about', 'banner', 'categories'));
+        $banner->small_text = implode(' ', array_map(function ($word) {
+            return '<span>' . $word . '</span>';
+        }, $small_text));
+
+
+        $projects = Project::with('category')->get();
+        $categories = Category::all();
+    
+        return view('index', compact('about', 'banner', 'categories', 'projects', 'socials'));
     }
 }

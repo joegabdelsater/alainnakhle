@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Rokstar - Creative One Page Portfolio Html Template</title>
+    <title>Alain Nakhle - Creative Director</title>
     <link rel="shortcut icon" type="image/png" href="assets/img/icon/favicon.ico">
     <!-- all css here -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
@@ -61,23 +61,12 @@
     </header>
     <!-- header area end -->
     <!-- slider area start -->
-    <section id="home" class="slider-area parallax" data-speed="3" data-bg-image="assets/img/bg/slider-bg.jpg">
+    <section id="home" class="slider-area parallax" data-speed="3" data-bg-image="{{ URL::to($banner->image) }}">
         <div class="container">
             <div class="slider-content">
-                <h2 class="txtanim1"><span>I'm</span> <span>lucy</span> <span>Doe</span></h2>
+                <h2 class="txtanim1"><span>{{ $banner->large_text }}</span></h2>
                 <h4 class="txtanim1 delay1">
-                    <span>W</span>
-                    <span>e</span>
-                    <span>b</span>
-                    <span>D</span>
-                    <span>e</span>
-                    <span>v</span>
-                    <span>e</span>
-                    <span>l</span>
-                    <span>o</span>
-                    <span>p</span>
-                    <span>e</span>
-                    <span>r</span>
+                    {!! $banner->small_text !!}
                 </h4>
             </div>
         </div>
@@ -97,7 +86,7 @@
             <div class="row align-items-center">
                 <div class="col-md-4">
                     <div class="abt-left-thumb">
-                        <img src="assets/img/about/abt-left-thumb.jpg" alt="image">
+                        <img src="{{ URL::to($about->image) }}" alt="image">
                     </div>
                 </div>
                 <div class="col-md-7 offset-md-1">
@@ -105,23 +94,16 @@
                         <div class="section-title">
                             <h2 class="txt2_is_show">About Us</h2>
                         </div>
-                        <p class="txt1-wrap"><span class="txt1">For instance, whenever I go back to the guest house
-                                during the morning to copy out the contract, these gentlemen are always still sitting
-                                there eating their breakfasts. I ought to just try that witht my boss; I'd get kicked
-                                out on the spot.</span></p>
-                        <p class="txt1-wrap"><span class="txt1">But who knows, maybe that would be the best thing for
-                                me. He'd fall right off his desk! And it's a funny sort of business to be sitting up
-                                there at your desk,</span> <span class="txt1">talking down at your subordinates. I
-                                ought to just try that witht my boss; I'd get kicked out on the spot. But who knows,
-                                maybe that would be the best thing for me. He'd fall right off his desk! And it's a
-                                funny sort of business to be sitting up there at your desk, talking down at your
-                                subordinates.</span></p>
+                        <p class="txt1-wrap"><span class="txt1">{!! $about->text !!}</span></p>
                         <div class="social-link">
                             <h5>Share :</h5>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                            <a href="#"><i class="fa fa-vimeo"></i></a>
+                            <a href="{{ $socials['instagram']['url'] }}" target="_blank"><i
+                                    class="fa fa-instagram"></i></a>
+                            <a href="{{ $socials['facebook']['url'] }}" target="_blank"><i
+                                    class="fa fa-facebook"></i></a>
+                            <a href="{{ $socials['linkedin']['url'] }}" target="_blank"><i
+                                    class="fa fa-linkedin"></i></a>
+                            <a href="{{ $socials['vimeo']['url'] }}" target="_blank"><i class="fa fa-vimeo"></i></a>
                         </div>
                     </div>
                 </div>
@@ -180,20 +162,27 @@
             </div>
             <div class="fortfolio-filter">
                 <button class="active" data-filter="*">All</button>
-                <button data-filter=".web">Web Design</button>
+                @foreach ($categories as $category)
+                    <button data-filter=".{{ $category->slug }}">{{ $category->name }}</button>
+                @endforeach
+                {{-- <button data-filter=".web">Web Design</button>
                 <button data-filter=".design">Graphics Design</button>
-                <button data-filter=".marketing">Marketing</button>
+                <button data-filter=".marketing">Marketing</button> --}}
             </div>
             <div class="portfolio-masonary row" id="container">
-                <div class="prt-grid marketing design col-md-4 col-sm-6">
-                    <div class="prt-item">
-                        <a class="expand-video" href="https://vimeo.com/776920295">
-                            <span class="flaticon-play-button"></span>
-                            <img src="assets/img/portfolio/img1.jpg" alt="image">
-                        </a>
+                @foreach ($projects as $project)
+                    <div class="prt-grid {{$project->category->slug}} design col-md-4 col-sm-6">
+                        <div class="prt-item">
+                            <a class="expand-video" href="{{$project->vimeo_url}}">
+                                <span class="flaticon-play-button"></span>
+                                <img src="{{URL::to($project->cover_image)}}" alt="image">
+                            </a>
+                            <p class="project-name">{{$project->name}}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="prt-grid marketing web col-md-4 col-sm-6">
+                @endforeach
+
+                {{-- <div class="prt-grid marketing web col-md-4 col-sm-6">
                     <div class="prt-item">
                         <a class="expand-img" href="assets/img/portfolio/img2.jpg"><img
                                 src="assets/img/portfolio/img2.jpg" alt="image"></a>
@@ -222,7 +211,7 @@
                         <a class="expand-img" href="assets/img/portfolio/img6.jpg"><img
                                 src="assets/img/portfolio/img6.jpg" alt="image"></a>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
         <div class="white_svg svg_white">
@@ -236,22 +225,26 @@
     <section class="contact-area ptb--100" id="contact">
         <div class="container">
             <div class="section-title">
-                <h2 class="txt2_is_show">Get In Tuch</h2>
+                <h2 class="txt2_is_show">Get In Touch</h2>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="container">
-                        <ul>
+                        {{-- <ul>
                             <li>100 Main St, Blacktown NSW 2148, <span class="ct-break">Australia</span></li>
                             <li>support@bold.com, info@youremail.com</li>
                             <li>+256-4516-556, +(257) 56812749</li>
-                        </ul>
+                        </ul> --}}
+                        {!! $about->contact_details !!}
                         <div class="social-link">
                             <h5>Share :</h5>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                            <a href="#"><i class="fa fa-vimeo"></i></a>
+                            <a href="{{ $socials['instagram']['url'] }}" target="_blank"><i
+                                class="fa fa-instagram"></i></a>
+                        <a href="{{ $socials['facebook']['url'] }}" target="_blank"><i
+                                class="fa fa-facebook"></i></a>
+                        <a href="{{ $socials['linkedin']['url'] }}" target="_blank"><i
+                                class="fa fa-linkedin"></i></a>
+                        <a href="{{ $socials['vimeo']['url'] }}" target="_blank"><i class="fa fa-vimeo"></i></a>
                         </div>
                     </div>
                 </div>
@@ -291,7 +284,7 @@
                     </div>
                     <div class="col-md-6 col-sm-8">
                         <div class="copyright">
-                            <p>@Copyright By <span>Codexfusion</span></p>
+                            <p>@Copyright By <span>Alain Nakhle</span></p>
                         </div>
                     </div>
                 </div>
@@ -303,16 +296,16 @@
     </footer>
     <!-- footer area end -->
     <!-- jquery latest version -->
-    <script src="{{ asset('assets/js/vendor/jquery-3.2.0.min.js')}}"></script>
+    <script src="{{ asset('assets/js/vendor/jquery-3.2.0.min.js') }}"></script>
     <!-- bootstrap 4 js -->
-    <script src="{{ asset('assets/js/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <!-- others plugins -->
-    <script src="{{ asset('assets/js/jquery.slicknav.min.js')}}"></script>
-    <script src="{{ asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
-    <script src="{{ asset('assets/js/imagesloaded.pkgd.min.js')}}"></script>
-    <script src="{{ asset('assets/js/isotope.pkgd.min.js')}}"></script>
-    <script src="{{ asset('assets/js/plugins.js')}}"></script>
-    <script src="{{ asset('assets/js/scripts.js')}}"></script>
+    <script src="{{ asset('assets/js/jquery.slicknav.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('assets/js/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins.js') }}"></script>
+    <script src="{{ asset('assets/js/scripts.js') }}"></script>
 </body>
 
 </html>

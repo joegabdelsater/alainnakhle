@@ -562,6 +562,18 @@
 .prt-item:hover a.expand-video:before{
     opacity: 1;
 }
+.prt-item p.project-name {
+    display: none;
+    position: absolute;
+    left: 33px;
+    bottom: 36px;
+    color: white;
+    font-weight: bold;
+}
+.prt-item:hover p.project-name {
+    display:block;
+    z-index: 2;
+}
 .prt-item a.expand-video span:before{
     font-size: 50px;
     color: #fff;

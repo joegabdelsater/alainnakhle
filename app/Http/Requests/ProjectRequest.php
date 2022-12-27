@@ -27,7 +27,7 @@ class ProjectRequest extends FormRequest
         return [
             'name' => 'required|min:5|max:255',
             'description' => 'nullable',
-            'cover_image' => 'required|image',
+            'cover_image' => 'required',
             'vimeo_url' => 'required|url',
             'category_id' => 'required|exists:categories,id'
         ];

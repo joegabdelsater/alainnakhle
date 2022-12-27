@@ -60,6 +60,6 @@ class Project extends Model
     */
 
     public function setCoverImageAttribute($value){
-        $this->uploadImage($value, 'cover_iamge', 'projects');
+        $this->uploadImage($value, 'cover_image', 'projects');
     }
 }   

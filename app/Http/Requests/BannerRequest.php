@@ -27,7 +27,7 @@ class BannerRequest extends FormRequest
         return [
             'large_text' => 'required|min:5|max:255',
             'small_text' => 'nullable',
-            'image' => 'required|image',
+            'image' => 'required',
         ];
     }
 

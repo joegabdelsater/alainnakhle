@@ -19,6 +19,7 @@ class Category extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
+    protected $appends = ['slug'];
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
@@ -46,6 +47,11 @@ class Category extends Model
     | ACCESSORS
     |--------------------------------------------------------------------------
     */
+
+    public function getSlugAttribute()
+    {
+        return  str_replace(' ', '', $this->name);
+    }
 
     /*
     |--------------------------------------------------------------------------

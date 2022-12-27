@@ -46,9 +46,9 @@ class SocialCrudController extends CrudController
                 'label' => 'Platform'
             ],
             [
-                'name' => 'link',
+                'name' => 'url',
                 'type' => 'text',
-                'label' => 'Link'
+                'label' => 'url'
             ]
         ]);
 
@@ -78,9 +78,9 @@ class SocialCrudController extends CrudController
                 'label' => 'Platform'
             ],
             [
-                'name' => 'link',
+                'name' => 'url',
                 'type' => 'text',
-                'label' => 'Link'
+                'label' => 'url'
             ]
         ]);
 
