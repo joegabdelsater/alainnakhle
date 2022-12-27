@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
+use App\Http\Traits\ImageUpload;
 
 class About extends Model
 {
-    use CrudTrait;
+    use CrudTrait, ImageUpload;
 
     /*
     |--------------------------------------------------------------------------
@@ -15,7 +16,7 @@ class About extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'abouts';
+    protected $table = 'about';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
@@ -52,4 +53,7 @@ class About extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
+    public function setImageAttribute($value){
+        $this->uploadImage($value, 'image', 'about');
+    }
 }

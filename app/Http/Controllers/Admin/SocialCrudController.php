@@ -39,7 +39,18 @@ class SocialCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        
+        $this->crud->addColumns([
+            [
+                'name' => 'platform',
+                'type' => 'text',
+                'label' => 'Platform'
+            ],
+            [
+                'name' => 'link',
+                'type' => 'text',
+                'label' => 'Link'
+            ]
+        ]);
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -58,7 +69,20 @@ class SocialCrudController extends CrudController
     {
         CRUD::setValidation(SocialRequest::class);
 
-        
+    
+
+        $this->crud->addFields([
+            [
+                'name' => 'platform',
+                'type' => 'text',
+                'label' => 'Platform'
+            ],
+            [
+                'name' => 'link',
+                'type' => 'text',
+                'label' => 'Link'
+            ]
+        ]);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
@@ -76,5 +100,7 @@ class SocialCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+
+  
     }
 }

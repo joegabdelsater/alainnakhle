@@ -40,7 +40,33 @@ class ProjectCrudController extends CrudController
     protected function setupListOperation()
     {
         
-
+        $this->crud->addColumns([
+            [
+                'name' => 'name',
+                'type' => 'text',
+                'label' => 'Name'
+            ],
+            [
+                'name' => 'description',
+                'type' => 'text',
+                'label' => 'Description'
+            ],
+            [
+                'name' => 'cover_image',
+                'type' => 'image',
+                'label' => 'Cover Image'
+            ],
+            [
+                'name' => 'vimeo_url',
+                'type' => 'text',
+                'label' => 'Vimeo Url'
+            ],
+            [
+                'name' => 'category_id',
+                'type' => 'text',
+                'label' => 'Category'
+            ]
+        ]);
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
@@ -58,7 +84,33 @@ class ProjectCrudController extends CrudController
     {
         CRUD::setValidation(ProjectRequest::class);
 
-        
+        $this->crud->addFields([
+            [
+                'name' => 'name',
+                'type' => 'text',
+                'label' => 'Name'
+            ],
+            [
+                'name' => 'description',
+                'type' => 'text',
+                'label' => 'Description'
+            ],
+            [
+                'name' => 'cover_image',
+                'type' => 'image',
+                'label' => 'Cover Image'
+            ],
+            [
+                'name' => 'vimeo_url',
+                'type' => 'text',
+                'label' => 'Vimeo Url'
+            ],
+            [
+                'name' => 'category_id',
+                'type' => 'relationship',
+                'label' => 'Category'
+            ]
+        ]);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

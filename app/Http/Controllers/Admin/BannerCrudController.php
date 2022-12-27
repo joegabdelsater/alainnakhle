@@ -39,8 +39,23 @@ class BannerCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        
-
+        $this->crud->addColumns([
+            [
+                'name' => 'large_text',
+                'type' => 'text',
+                'label' => 'Name'
+            ],
+            [
+                'name' => 'small_text',
+                'type' => 'text',
+                'label' => 'Description'
+            ],
+            [
+                'name' => 'image',
+                'type' => 'image',
+                'label' => 'Image'
+            ],
+        ]);
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
@@ -58,6 +73,23 @@ class BannerCrudController extends CrudController
     {
         CRUD::setValidation(BannerRequest::class);
 
+        $this->crud->addFields([
+            [
+                'name' => 'large_text',
+                'type' => 'text',
+                'label' => 'Name'
+            ],
+            [
+                'name' => 'small_text',
+                'type' => 'text',
+                'label' => 'Description'
+            ],
+            [
+                'name' => 'image',
+                'type' => 'image',
+                'label' => 'Image'
+            ],
+        ]);
         
 
         /**

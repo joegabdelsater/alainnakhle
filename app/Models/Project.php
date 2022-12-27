@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
+use App\Http\Traits\ImageUpload;
 
 class Project extends Model
 {
-    use CrudTrait;
+    use CrudTrait, ImageUpload;
 
     /*
     |--------------------------------------------------------------------------
@@ -35,6 +36,11 @@ class Project extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function category()
+    {
+        return $this->belongsTo('App\Models\Category');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES
@@ -52,4 +58,8 @@ class Project extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
-}
+
+    public function setCoverImageAttribute($value){
+        $this->uploadImage($value, 'cover_iamge', 'projects');
+    }
+}   

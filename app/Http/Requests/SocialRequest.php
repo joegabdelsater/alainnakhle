@@ -25,7 +25,8 @@ class SocialRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'platform' => 'required|min:5|max:255',
+            'link' => 'required|url',
         ];
     }
 

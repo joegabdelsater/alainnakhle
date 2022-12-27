@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
+use App\Http\Traits\ImageUpload;
 
 class Banner extends Model
 {
-    use CrudTrait;
+    use CrudTrait, ImageUpload;
 
     /*
     |--------------------------------------------------------------------------
@@ -52,4 +53,7 @@ class Banner extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
+    public function setImageAttribute($value){
+        $this->uploadImage($value, 'image', 'banners');
+    }
 }

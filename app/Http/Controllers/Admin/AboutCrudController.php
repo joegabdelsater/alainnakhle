@@ -39,7 +39,23 @@ class AboutCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        
+        $this->crud->addColumns([
+            [
+                'name' => 'image',
+                'type' => 'image',
+                'label' => 'Image'
+            ],
+            [
+                'name' => 'text',
+                'type' => 'text',
+                'label' => 'text'
+            ],
+            [
+                'name' => 'contact_details',
+                'type' => 'text',
+                'label' => 'contact_details'
+            ]
+        ]);
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -59,7 +75,23 @@ class AboutCrudController extends CrudController
         CRUD::setValidation(AboutRequest::class);
 
         
-
+        $this->crud->addFields([
+            [
+                'name' => 'image',
+                'type' => 'image',
+                'label' => 'Image'
+            ],
+            [
+                'name' => 'text',
+                'type' => 'ckeditor',
+                'label' => 'text'
+            ],
+            [
+                'name' => 'contact_details',
+                'type' => 'ckeditor',
+                'label' => 'contact_details'
+            ]
+        ]);
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');

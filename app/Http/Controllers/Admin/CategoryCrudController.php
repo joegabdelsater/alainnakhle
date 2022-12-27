@@ -40,7 +40,13 @@ class CategoryCrudController extends CrudController
     protected function setupListOperation()
     {
         
-
+        $this->crud->addColumns([
+            [
+                'name' => 'name',
+                'type' => 'text',
+                'label' => 'Name'
+            ]
+        ]);
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
@@ -56,7 +62,16 @@ class CategoryCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
+
         CRUD::setValidation(CategoryRequest::class);
+
+        $this->crud->addFields([
+            [
+                'name' => 'name',
+                'type' => 'text',
+                'label' => 'Name'
+            ],
+        ]);
 
         
 
