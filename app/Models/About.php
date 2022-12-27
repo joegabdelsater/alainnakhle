@@ -56,4 +56,7 @@ class About extends Model
     public function setImageAttribute($value){
         $this->uploadImage($value, 'image', 'about');
     }
+    public function setLogoAttribute($value){
+        $this->uploadImage($value, 'logo', 'about');
+    }
 }

@@ -37,7 +37,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-3 col-sm-12">
                         <div class="logo">
-                            <a href="index.html"><img src="assets/img/icon/logo.png" alt="logo"></a>
+                            <a href="/"><img src="{{ $about->logo ? URL::to($about->logo) : 'assets/img/icon/logo.png'}}" alt="logo"></a>
                         </div>
                     </div>
                     <div class="col-md-9 d-none d-md-block">
@@ -279,7 +279,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-6 col-sm-4">
                         <div class="flogo">
-                            <a href="/"><img src="assets/img/icon/flogo.png" alt="logo"></a>
+                            <a href="/"><img src="{{ $about->logo ? URL::to($about->logo) : 'assets/img/icon/logo.png'}}" alt="logo"></a>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-8">

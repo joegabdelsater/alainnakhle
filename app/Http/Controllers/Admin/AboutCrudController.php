@@ -46,6 +46,11 @@ class AboutCrudController extends CrudController
                 'label' => 'Image'
             ],
             [
+                'name' => 'logo',
+                'type' => 'image',
+                'label' => 'logo'
+            ],
+            [
                 'name' => 'text',
                 'type' => 'text',
                 'label' => 'text'
@@ -74,12 +79,17 @@ class AboutCrudController extends CrudController
     {
         CRUD::setValidation(AboutRequest::class);
 
-        
+
         $this->crud->addFields([
             [
                 'name' => 'image',
                 'type' => 'image',
                 'label' => 'Image'
+            ],
+            [
+                'name' => 'logo',
+                'type' => 'image',
+                'label' => 'logo'
             ],
             [
                 'name' => 'text',
