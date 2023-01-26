@@ -39,7 +39,7 @@ class ProjectCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        
+        $this->crud->addClause('orderBy', 'order', 'asc');
         $this->crud->addColumns([
             [
                 'name' => 'name',
@@ -65,6 +65,11 @@ class ProjectCrudController extends CrudController
                 'name' => 'category_id',
                 'type' => 'text',
                 'label' => 'Category'
+            ],
+            [
+                'name' => 'order',
+                'type' => 'text',
+                'label' => 'Order'
             ]
         ]);
         /**
@@ -109,6 +114,11 @@ class ProjectCrudController extends CrudController
                 'name' => 'category_id',
                 'type' => 'relationship',
                 'label' => 'Category'
+            ],
+            [
+                'name' => 'order',
+                'type' => 'number',
+                'label' => 'Order'
             ]
         ]);
 

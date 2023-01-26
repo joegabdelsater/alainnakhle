@@ -24,7 +24,7 @@ class PagesController extends Controller
         }, $small_text));
 
 
-        $projects = Project::with('category')->get();
+        $projects = Project::with('category')->orderBy('order', 'asc')->get();
         $categories = Category::all();
     
         return view('index', compact('about', 'banner', 'categories', 'projects', 'socials'));

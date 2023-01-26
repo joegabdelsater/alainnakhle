@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Alain Nakhle - Creative Director</title>
     <link rel="shortcut icon" type="image/png" href="assets/img/icon/favicon.ico">
@@ -37,7 +38,9 @@
                 <div class="row align-items-center">
                     <div class="col-md-3 col-sm-12">
                         <div class="logo">
-                            <a href="/"><img src="{{ $about->logo ? URL::to($about->logo) : 'assets/img/icon/logo.png'}}" alt="logo"></a>
+                            <a href="/"><img
+                                    src="{{ $about->logo ? URL::to($about->logo) : 'assets/img/icon/logo.png' }}"
+                                    alt="logo"></a>
                         </div>
                     </div>
                     <div class="col-md-9 d-none d-md-block">
@@ -46,7 +49,7 @@
                                 <ul id="nav_menu">
                                     <li class="active"><a data-hover="home" href="#home"><span>Home</span></a></li>
                                     <li><a data-hover="about" href="#about"><span>About</span></a></li>
-                                    <li><a data-hover="portfolio" href="#portfolio"><span>Portfolio</span></a></li>
+                                    <li><a data-hover="work" href="#portfolio"><span>Work</span></a></li>
                                     <li><a data-hover="contact" href="#contact"><span>Contact</span></a></li>
                                 </ul>
                             </nav>
@@ -76,7 +79,7 @@
             </svg>
         </div>
         <div class="txtanim1 next-section">
-            <span><a href="#about">about us <strong><i class="fa fa-question-circle"></i></strong></a></span>
+            <span><a href="#about">about <strong><i class="fa fa-question-circle"></i></strong></a></span>
         </div>
     </section>
     <!-- slider area end -->
@@ -92,15 +95,15 @@
                 <div class="col-md-7 offset-md-1">
                     <div class="abt-content">
                         <div class="section-title">
-                            <h2 class="txt2_is_show">About Us</h2>
+                            <h2 class="txt2_is_show">About</h2>
                         </div>
                         <p class="txt1-wrap"><span class="txt1">{!! $about->text !!}</span></p>
                         <div class="social-link">
                             <h5>Share :</h5>
                             <a href="{{ $socials['instagram']['url'] }}" target="_blank"><i
                                     class="fa fa-instagram"></i></a>
-                            <a href="{{ $socials['facebook']['url'] }}" target="_blank"><i
-                                    class="fa fa-facebook"></i></a>
+                            {{-- <a href="{{ $socials['facebook']['url'] }}" target="_blank"><i
+                                    class="fa fa-facebook"></i></a> --}}
                             <a href="{{ $socials['linkedin']['url'] }}" target="_blank"><i
                                     class="fa fa-linkedin"></i></a>
                             <a href="{{ $socials['vimeo']['url'] }}" target="_blank"><i class="fa fa-vimeo"></i></a>
@@ -158,7 +161,7 @@
     <section class="fortfolio-area bg-gray pt--100 pb--200" id="portfolio">
         <div class="container">
             <div class="section-title">
-                <h2 class="txt2_is_show">Our Portfolio</h2>
+                <h2 class="txt2_is_show">Work</h2>
             </div>
             <div class="fortfolio-filter">
                 <button class="active" data-filter="*">All</button>
@@ -171,14 +174,26 @@
             </div>
             <div class="portfolio-masonary row" id="container">
                 @foreach ($projects as $project)
-                    <div class="prt-grid {{$project->category->slug}} design col-md-4 col-sm-6">
+                    <div class="prt-grid {{ $project->category->slug }} design col-md-4 col-sm-6">
                         <div class="prt-item">
-                            <a class="expand-video" href="{{$project->vimeo_url}}">
+                            <a class="expand-video" href="{{ $project->vimeo_url }}"
+                                style="
+                                    background-image: url({{ URL::to($project->cover_image) }});
+                                    background-size: cover;
+                                    background-position: center;
+                                    background-repeat: no-repeat;
+                                    width:360px;
+                                    height: 238px;">
                                 <span class="flaticon-play-button"></span>
-                                <img src="{{URL::to($project->cover_image)}}" alt="image">
+                                {{-- <img src="{{ URL::to($project->cover_image) }}" alt="image"> --}}
                             </a>
-                            <p class="project-name">{{$project->name}}</p>
+                            <div class="project-name">
+                                <p class="">{{ $project->name }}</p>
+                                <p>{{ $project->description }}</p>
+                            </div>
                         </div>
+
+
                     </div>
                 @endforeach
 
@@ -239,12 +254,12 @@
                         <div class="social-link">
                             <h5>Share :</h5>
                             <a href="{{ $socials['instagram']['url'] }}" target="_blank"><i
-                                class="fa fa-instagram"></i></a>
-                        <a href="{{ $socials['facebook']['url'] }}" target="_blank"><i
-                                class="fa fa-facebook"></i></a>
-                        <a href="{{ $socials['linkedin']['url'] }}" target="_blank"><i
-                                class="fa fa-linkedin"></i></a>
-                        <a href="{{ $socials['vimeo']['url'] }}" target="_blank"><i class="fa fa-vimeo"></i></a>
+                                    class="fa fa-instagram"></i></a>
+                            {{-- <a href="{{ $socials['facebook']['url'] }}" target="_blank"><i
+                                class="fa fa-facebook"></i></a> --}}
+                            <a href="{{ $socials['linkedin']['url'] }}" target="_blank"><i
+                                    class="fa fa-linkedin"></i></a>
+                            <a href="{{ $socials['vimeo']['url'] }}" target="_blank"><i class="fa fa-vimeo"></i></a>
                         </div>
                     </div>
                 </div>
@@ -279,7 +294,9 @@
                 <div class="row align-items-center">
                     <div class="col-md-6 col-sm-4">
                         <div class="flogo">
-                            <a href="/"><img src="{{ $about->logo ? URL::to($about->logo) : 'assets/img/icon/logo.png'}}" alt="logo"></a>
+                            <a href="/"><img
+                                    src="{{ $about->logo ? URL::to($about->logo) : 'assets/img/icon/logo.png' }}"
+                                    alt="logo"></a>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-8">
