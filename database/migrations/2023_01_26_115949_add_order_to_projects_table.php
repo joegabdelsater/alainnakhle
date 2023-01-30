@@ -14,7 +14,7 @@ class AddOrderToProjectsTable extends Migration
     public function up()
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->integer('order')->default(0);
+            $table->integer('order')->default(9999);
         });
     }
 
