@@ -58,6 +58,7 @@
     ==================================*/
     var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
     var preloader = $('#preloader');
+    var preloaderLogo = $('.preloader-logo');
     var headerHeight = $('.header-area').innerHeight();
 
 
@@ -66,12 +67,18 @@
     ==================================*/
     function prealoaderSetup() {
         if (!isMobile) {
+
+            preloaderLogo.show({ animate: true, duration: 400 })
+
             setTimeout(function() {
+                preloaderLogo.hide({ animate: true, duration: 400 })
+
                 preloader.addClass('preloaded');
-            }, 800);
+            }, 1000);
             setTimeout(function() {
                 preloader.remove();
             }, 2000);
+
 
         } else {
             preloader.remove();
