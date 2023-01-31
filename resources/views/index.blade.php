@@ -7,7 +7,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Alain Nakhle - Creative Director</title>
-    <link rel="shortcut icon" type="image/png" href="assets/img/icon/favicon.ico">
+    <link rel="shortcut icon" type="image/png" href="{{ $about->logo ? URL::to($about->logo) : 'assets/img/icon/logo.png' }}">
     <!-- all css here -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">
