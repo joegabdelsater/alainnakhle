@@ -68,18 +68,16 @@
     function prealoaderSetup() {
         if (!isMobile) {
 
-            preloaderLogo.show({ animate: true, duration: 400 })
+            preloaderLogo.fadeIn({ animate: true, duration: 400 })
 
             setTimeout(function() {
-                preloaderLogo.hide({ animate: true, duration: 400 })
+                preloaderLogo.fadeOut({ animate: true, duration: 400 })
 
                 preloader.addClass('preloaded');
             }, 1000);
             setTimeout(function() {
                 preloader.remove();
             }, 2000);
-
-
         } else {
             preloader.remove();
         }

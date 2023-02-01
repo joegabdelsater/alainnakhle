@@ -28,7 +28,9 @@
         <![endif]-->
     <!-- preloader area start -->
     <div id="preloader">
-        <img class="preloader-logo" src="{{ $about->logo ? URL::to($about->logo) : 'assets/img/icon/logo.png' }}" alt="logo">
+        <div class="preloader-blur"></div>
+        <img class="preloader-logo" src="{{ $about->logo ? URL::to($about->logo) : 'assets/img/icon/logo.png' }}" alt="logo" />
+        
         {{-- <div class="loader_line"></div> --}}
     </div>
     <!-- prealoader area end -->
