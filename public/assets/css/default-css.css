@@ -102,12 +102,13 @@ textarea {
     background-color: rgba(0, 0, 0, 0.3);
     top: 0;
     left: 0;
-    -webkit-transition: all 0.8s ease 0s;
+    /* -webkit-transition: all 0.8s ease 0s;
     -o-transition: all 0.8s ease 0s;
-    transition: all 0.8s ease 0s;
-    -webkit-animation: preloadedzero 500ms ease-out 1800ms forwards;
+    transition: all 0.8s ease 0s; */
+    /* -webkit-animation: preloadedzero 500ms ease-out 1800ms forwards;
     -o-animation: preloadedzero 500ms ease-out 1800ms forwards;
-    animation: preloadedzero 500ms ease-out 1800ms forwards;
+    animation: preloadedzero 500ms ease-out 1800ms forwards; */
+    /* display:none; */
 }
 
 

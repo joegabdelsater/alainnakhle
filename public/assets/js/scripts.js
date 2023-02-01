@@ -69,12 +69,13 @@
     function prealoaderSetup() {
         if (!isMobile) {
 
-            preloaderLogo.fadeIn({ animate: true, duration: 400 })
-            preloaderBlur.fadeIn({ animate: true, duration: 400 })
+            preloaderLogo.fadeIn({ animate: true, duration: 800 })
+            // preloaderBlur.
 
 
             setTimeout(function() {
-                preloaderLogo.fadeOut({ animate: true, duration: 400 })
+                preloaderLogo.fadeOut({ animate: true, duration: 800 })
+                preloaderBlur.fadeOut({ animate: true, duration: 800 })
 
                 preloader.addClass('preloaded');
             }, 1000);
