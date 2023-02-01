@@ -59,6 +59,7 @@
     var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
     var preloader = $('#preloader');
     var preloaderLogo = $('.preloader-logo');
+    var preloaderBlur = $('.preloader-blur');
     var headerHeight = $('.header-area').innerHeight();
 
 
@@ -69,6 +70,8 @@
         if (!isMobile) {
 
             preloaderLogo.fadeIn({ animate: true, duration: 400 })
+            preloaderBlur.fadeIn({ animate: true, duration: 400 })
+
 
             setTimeout(function() {
                 preloaderLogo.fadeOut({ animate: true, duration: 400 })

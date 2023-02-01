@@ -100,12 +100,14 @@ textarea {
     height: 100%;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.3);
-
     top: 0;
     left: 0;
     -webkit-transition: all 0.8s ease 0s;
     -o-transition: all 0.8s ease 0s;
     transition: all 0.8s ease 0s;
+    -webkit-animation: preloadedzero 500ms ease-out 1800ms forwards;
+    -o-animation: preloadedzero 500ms ease-out 1800ms forwards;
+    animation: preloadedzero 500ms ease-out 1800ms forwards;
 }
 
 
@@ -222,15 +224,10 @@ textarea {
     height: 100%!important;
 }
 
-.preloader-blur {
-    /* -webkit-animation: preloadedzero 2000ms linear ;
-    -o-animation: preloadedzero 2000ms linear ; */
-    animation: preloadedzero;
-    animation-duration: 500ms;
-    animation-delay: 1800ms;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-out;
-}
+
+/* .preloader-blur {
+
+} */
 
 @keyframes preloadedzero {
     0% {
