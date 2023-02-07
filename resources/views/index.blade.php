@@ -5,8 +5,12 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="format-detection" content="telephone=no">
+    <meta property="og:title" content="Film & TV Director" />
+    <meta name="description" content="description of your website/webpage, make sure you use keywords!" />
+    <meta property="og:url" content="https://www.alainnakhle.com/" />
+    <meta property="og:image" content="{{ $about->logo ? URL::to($about->logo) : 'assets/img/icon/logo.png' }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Alain Nakhle - Creative Director</title>
+    <title>Alain Nakhle - Film & TV Director</title>
     <link rel="shortcut icon" type="image/png" href="{{ $about->logo ? URL::to($about->logo) : 'assets/img/icon/logo.png' }}">
     <!-- all css here -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
