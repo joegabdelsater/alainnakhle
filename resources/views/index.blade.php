@@ -6,7 +6,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="format-detection" content="telephone=no">
     <meta property="og:title" content="Alain Nakhle" />
-    <meta name="description" content="Alain Nakhle - Film and TV Director" />
+    <meta name="og:description" content="Alain Nakhle - Film and TV Director" />
     <meta property="og:url" content="https://www.alainnakhle.com/" />
     <meta property="og:image" content="{{ $about->logo ? URL::to($about->logo) : 'assets/img/icon/logo.png' }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
