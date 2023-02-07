@@ -8,7 +8,7 @@
     <meta property="og:title" content="Alain Nakhle" />
     <meta name="og:description" content="Alain Nakhle - Film and TV Director" />
     <meta property="og:url" content="https://www.alainnakhle.com/" />
-    <meta property="og:image" content="{{ $about->logo ? URL::to($about->logo) : 'assets/img/icon/logo.png' }}" />
+    <meta property="og:image:secure_url" content="{{ $about->logo ? URL::to($about->logo) : 'assets/img/icon/logo.png' }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Alain Nakhle - Film and TV Director</title>
     <link rel="shortcut icon" type="image/png" href="{{ $about->logo ? URL::to($about->logo) : 'assets/img/icon/logo.png' }}">
