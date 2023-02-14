@@ -149,6 +149,13 @@
 /* small mobile :320px. */
 
 @media (min-width: 240px) and (max-width: 479px) {
+    .prt-item div.project-name {
+        display: block !important;
+        z-index: 2;
+    }
+    .prt-item a.expand-video:before {
+        opacity: 1 !important;
+    }
 	.logo a img {
 	    max-width: 32px;
 	}
