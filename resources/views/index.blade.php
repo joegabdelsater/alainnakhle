@@ -308,7 +308,7 @@
                     </div>
                     <div class="col-md-6 col-sm-8">
                         <div class="copyright">
-                            <p>@Copyright By <span>Alain Nakhle</span></p>
+                            <p>@Copyright By <span>Alain Nakhle</span> Developed by <a href="https://www.yllwdigital.com">Yellow Digital</a></p>
                         </div>
                     </div>
                 </div>
